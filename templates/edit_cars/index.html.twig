@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EditCarsController!{% endblock %}
+
+{% block body %}
+<div class="list-group col-sm-9 col-md-7 col-lg-5 mx-auto">
+{% for vehicle in spz %}
+<a href="#" data-target=".bd-modal-lg" data-toggle="modal" class="list-group-item">{{vehicle}}</a>
+{% endfor %}
+</div>
+<div  aria-hidden="true" id="myModal" aria-labelledby="myLargeModalLabel" class="modal fade bd-modal-lg" role="dialog" tabindex="-1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit vehicle</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="editSPZ" class="col-form-label">SPZ:</label>
+            <input type="text" class="form-control" id="editSPZ">
+          </div>
+          <div class="form-group">
+            <label for="editVehicleName" class="col-form-label">Name:</label>
+            <input type="text" class="form-control" id="editVehicleName">
+          </div>
+          <div class="form-group">
+            <label for="editVehicleType" class="col-form-label">Druh:</label>
+            <input type="text" class="form-control" id="editVehicleType">
+          </div>
+          <div class="form-group">
+            <label for="editVehicleFuelType" class="col-form-label">Typ paliva:</label>
+            <input type="text" class="form-control" id="editVehicleFuelType">
+          </div>
+          <div class="form-group">
+          <label for="editMaintenance" class="col-form-label">Potřeba údržby:</label>
+          <select class="form-select form-select-sm" aria-label=".form-select-sm" id="editMaintenance">
+            <option value="1">Ne</option>
+            <option value="2">Ano</option>
+        </select>
+        </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
